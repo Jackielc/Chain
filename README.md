@@ -12,7 +12,7 @@
 1.不定参va_list传递
 ---
 ```objective-c
-//..case 1,参数传递个数是不确定的，也就是说你想传几个就传几个
+//..case 1,参数传递个数是不确定的，也就是说你想传几个就传几个,像NSTextAlignmentCenter和@“qwe”并不依赖于函数传递，可以直接作为参数
     
     [label makeAttributes:@"qwe",
            MakeTextAlignment(NSTextAlignmentCenter),
