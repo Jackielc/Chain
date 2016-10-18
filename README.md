@@ -9,7 +9,7 @@
     #import "UILabel+Category.h"
 ```
 
-不定参va_list传递
+1.不定参va_list传递
 ---
 ```objective-c
 //..case 1
@@ -25,7 +25,7 @@
 
 ```
 
-类似Masonry的响应式编程方式
+2.类似Masonry的响应式编程方式
 ---
 ```objective-c
 //..case 2
