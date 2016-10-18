@@ -39,3 +39,5 @@
          .AddToSuperView(self.view);
 
 ```
+其它控件原理类似，不赘述
+---
