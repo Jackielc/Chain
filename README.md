@@ -12,7 +12,7 @@
 1.不定参va_list传递
 ---
 ```objective-c
-//..case 1
+//..case 1,参数传递个数是不确定的，也就是说你想穿几个就传几个
     
     [label makeAttributes:@"qwe",
            MakeTextAlignment(NSTextAlignmentCenter),
