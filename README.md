@@ -1,6 +1,8 @@
 # CCPowerLabel
 基于响应式编程和va_list不定参原理，极大简化创建UILabel各种属性的代码！
 
+有些函数名字起的有点随意，勿喷。。
+
 导入
 ---
 ```objective-c
