@@ -31,11 +31,11 @@
 //..case 2
 
     label.CBackgroundColor([UIColor redColor])
-    .CText(@"asdad")
-    .CTextColor([UIColor whiteColor])
-    .CTextAlignment(1)
-    .CFontSize(18.f)
-    .CRect(CGRectMake(0, 0, 100, 100))
-    .AddToSuperView(self.view);
+         .CText(@"asdad")
+         .CTextColor([UIColor whiteColor])
+         .CTextAlignment(1)
+         .CFontSize(18.f)
+         .CRect(CGRectMake(0, 0, 100, 100))
+         .AddToSuperView(self.view);
 
 ```
