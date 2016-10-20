@@ -39,5 +39,12 @@
          .AddToSuperView(self.view);
 
 ```
+3.UILabel间的属性集合复制
+---
+```objective-c
+//..end
+
+    [label2 addAttributes:label.attributes];
+```
 其它控件原理类似，不赘述
 ===
