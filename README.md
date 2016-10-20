@@ -25,7 +25,7 @@
 
 ```
 ```objective-c
-//..end
+//..UILabel之间可以直接复制，获取其属性集合
 
     [label2 addAttributes:label.attributes];
 ```
