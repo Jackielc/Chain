@@ -24,7 +24,11 @@
            nil];
 
 ```
+```objective-c
+//..end
 
+    [label2 addAttributes:label.attributes];
+```
 2.类似Masonry的响应式编程方式
 ---
 ```objective-c
@@ -39,12 +43,6 @@
          .AddToSuperView(self.view);
 
 ```
-3.UILabel间的属性集合复制
----
-```objective-c
-//..end
 
-    [label2 addAttributes:label.attributes];
-```
 其它控件原理类似，不赘述
 ===
