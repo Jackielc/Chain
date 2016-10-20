@@ -88,13 +88,6 @@
     return self;
 }
 
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context
-{
-    if ([keyPath isEqualToString:@"_attributes"]) {
-        NSLog(@"2");
-    }
-}
-
 - (NSArray *)makeAttributes:(id)attribute, ...
 {
     va_list params; va_start(params,attribute); id arg;
@@ -118,7 +111,7 @@
         return;
     }
     [array enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        
+   
         if ([obj isKindOfClass:[NSValue class]]&&![obj isKindOfClass:[NSNumber class]])
         {
             self.frame = [obj CGRectValue];
@@ -146,6 +139,11 @@
     }];
 }
 
+- (void)addAttributes:(NSMutableArray *)attributes
+{
+    [self analysisWithObject:attributes];
+}
+
 - (void)setAttributes:(NSMutableArray *)attributes
 {
     objc_setAssociatedObject(self, @selector(attributes), attributes, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
@@ -153,9 +151,7 @@
 
 - (NSMutableArray *)attributes
 {
-    NSMutableArray *attributesArray = objc_getAssociatedObject(self, @selector(attributes));
-    [self analysisWithObject:attributesArray];
-    return attributesArray;
+    return objc_getAssociatedObject(self, @selector(attributes));
 }
 
 NSValue * MakeRect(CGFloat x,CGFloat y,CGFloat width,CGFloat height)

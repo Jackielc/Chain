@@ -39,4 +39,5 @@ UIView * AddToSuperView(UIView *superView);
 #pragma mark Attributes & va_list
 @property (nonatomic,strong)NSMutableArray *attributes;
 - (NSArray *)makeAttributes:(id)attribute, ...;
+- (void)addAttributes:(NSMutableArray *)attributes;
 @end
