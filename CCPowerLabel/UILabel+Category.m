@@ -88,6 +88,13 @@
     return self;
 }
 
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context
+{
+    if ([keyPath isEqualToString:@"_attributes"]) {
+        NSLog(@"2");
+    }
+}
+
 - (NSArray *)makeAttributes:(id)attribute, ...
 {
     va_list params; va_start(params,attribute); id arg;
@@ -101,16 +108,16 @@
         }
         va_end(params);
     }
-    [self analysisWithObject];
+    [self analysisWithObject:self.attributes];
     return self.attributes;
 }
 
-- (void)analysisWithObject
+- (void)analysisWithObject:(NSMutableArray *)array
 {
-    if (!self.attributes) {
+    if (!array) {
         return;
     }
-    [self.attributes enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [array enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         
         if ([obj isKindOfClass:[NSValue class]]&&![obj isKindOfClass:[NSNumber class]])
         {
@@ -131,8 +138,10 @@
                 [self performSelector:@selector(setBackgroundColor:) withObject:model.color];
             else
                 [self performSelector:@selector(setTextColor:) withObject:model.color];
-        }else{
+        }else if([obj isKindOfClass:[UIFont class]]){
             [self performSelector:@selector(setFont:) withObject:obj];
+        }else{
+            [(UIView *)obj addSubview:self];
         }
     }];
 }
@@ -144,7 +153,9 @@
 
 - (NSMutableArray *)attributes
 {
-    return objc_getAssociatedObject(self, @selector(attributes));
+    NSMutableArray *attributesArray = objc_getAssociatedObject(self, @selector(attributes));
+    [self analysisWithObject:attributesArray];
+    return attributesArray;
 }
 
 NSValue * MakeRect(CGFloat x,CGFloat y,CGFloat width,CGFloat height)
