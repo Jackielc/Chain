@@ -11,7 +11,7 @@
 
 @interface ColorTypeModel :NSObject
 
-@property (nonatomic,strong)UIColor *color;
+@property (nonatomic)UIColor *color;
 @property (nonatomic,assign)BOOL isbg;
 
 @end
